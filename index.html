@@ -5,22 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Weather app</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="main.css" />
 </head>
 <body>
   <div class="app-wrap">
     <header>
-      <input type="text" autocomplete="off" class="search-box" placeholder="Search for a city..." />
+      <div class="search-container">
+        <input type="text" autocomplete="off" class="search-box" placeholder="Search for a city..." />
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+        <button class="location-btn" title="Get weather for my location"><i class="fas fa-location-arrow"></i></button>
+      </div>
     </header>
     <main>
+      <div class="loading-spinner hidden">
+        <i class="fas fa-spinner fa-spin"></i>
+      </div>
+      <div class="error-message hidden">
+        <i class="fas fa-exclamation-circle"></i>
+        <span>City not found. Please try again.</span>
+      </div>
       <section class="location">
         <div class="city">Kampala, UG</div>
         <div class="date">Thursday 27 July 2023</div>
       </section>
       <div class="current">
+        <div class="weather-icon">
+          <i class="fas fa-cloud"></i>
+        </div>
         <div class="temp">292<span>°c</span></div>
         <div class="weather">Clouds</div>
         <div class="hi-low">292°c / 292°c</div>
+      </div>
+      <div class="weather-details">
+        <div class="detail">
+          <i class="fas fa-wind"></i>
+          <span class="wind">-- km/h</span>
+        </div>
+        <div class="detail">
+          <i class="fas fa-tint"></i>
+          <span class="humidity">--%</span>
+        </div>
+        <div class="detail">
+          <i class="fas fa-compress-arrows-alt"></i>
+          <span class="pressure">-- hPa</span>
+        </div>
+      </div>
+      <div class="unit-toggle">
+        <button class="unit-btn active" data-unit="celsius">°C</button>
+        <button class="unit-btn" data-unit="fahrenheit">°F</button>
       </div>
     </main>
   </div>
